@@ -3,7 +3,7 @@
    Lo que quede vacío ("") no se muestra en la página.
    ========================================================================== */
 const PERFIL = {
-  email: "",      // ej. "tucorreo@ejemplo.com"  -> muestra el correo y el formulario de contacto
+  email: "juliopicavia0000@gmail.com",      // ej. "tucorreo@ejemplo.com"  -> muestra el correo y el formulario de contacto
   linkedin: "",   // ej. "https://www.linkedin.com/in/tu-usuario"
   cv: "",         // ej. "assets/cv/CV-Erick-Picavia.pdf"  -> muestra el botón "Descargar CV"
   demos: {        // enlaces a demos públicas; vacío = sin botón "Ver demo"
