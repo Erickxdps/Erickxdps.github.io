@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página no encontrada · Erick Picavia</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0B0B0F">
+  <!-- GitHub Pages sirve esta página en cualquier ruta, por eso las rutas empiezan con "/" -->
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .error {
+      min-height: 100svh; max-width: 40rem; margin: 0 auto; padding: 3rem var(--margen);
+      display: grid; align-content: center; gap: 2rem;
+    }
+    .error .consola__cuerpo { height: auto; }
+    .error h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); font-weight: 800; font-stretch: 122%; letter-spacing: -.035em; line-height: 1.02; }
+    .error p { margin-top: .9rem; color: var(--texto-2); font-size: 1.125rem; }
+    .error .boton { justify-self: start; }
+  </style>
+</head>
+<body>
+<main class="error">
+  <figure class="consola">
+    <div class="consola__barra">
+      <span class="consola__luces" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="consola__titulo">erick@la-paz: ~</span>
+    </div>
+<pre class="consola__cuerpo"><code><span class="l"><b class="prompt">$</b> curl -i erickxdps.github.io<span data-ruta>/esta-pagina</span></span>
+<span class="l dim">HTTP/2 <b class="ok">404</b></span>
+<span class="l dim">content-type: text/html; charset=utf-8</span></code></pre>
+  </figure>
+  <div>
+    <h1>Esta página no existe</h1>
+    <p>Puede que el enlace esté mal escrito o que la página se haya movido.</p>
+  </div>
+  <a class="boton boton--primario" href="/">Ir al inicio</a>
+</main>
+<script>
+  document.querySelector("[data-ruta]").textContent = location.pathname;
+</script>
+</body>
+</html>

@@ -9,11 +9,16 @@ Es un sitio estático hecho con HTML, CSS y JavaScript, sin frameworks, sin Node
 ```
 erick-portfolio/
 ├── index.html          Contenido de todas las secciones, SEO y datos estructurados
-├── style.css           Sistema visual: colores, tipografía, layout y responsive
+├── style.css           Sistema visual: colores, tipografía, layout, responsive e impresión
 ├── script.js           Configuración personal (arriba del todo) y comportamiento
+├── 404.html            Página para enlaces que no existen
+├── robots.txt          Permite indexar el sitio y apunta al sitemap
+├── sitemap.xml         Mapa del sitio para buscadores
+├── herramientas/
+│   └── diagramas.py    Genera los diagramas de los proyectos dentro de index.html
 ├── README.md
 └── assets/
-    ├── fonts/          Mona Sans (variable, autoalojada)
+    ├── fonts/          Mona Sans y Monaspace Neon (autoalojadas)
     ├── icons/          favicon.svg y apple-touch-icon.png
     ├── images/         og.png (vista previa al compartir) y capturas de proyectos
     └── cv/             Tu CV en PDF
@@ -37,29 +42,58 @@ Casi todo se cambia en el bloque `PERFIL` al principio de `script.js`. Lo que qu
 
 ```js
 const PERFIL = {
-  email: "tucorreo@ejemplo.com",                    // muestra el correo y el formulario de contacto
+  email: "tucorreo@ejemplo.com",                    // muestra el correo, "Escríbeme" y el formulario
   linkedin: "https://www.linkedin.com/in/tu-usuario",
-  cv: "assets/cv/CV-Erick-Picavia.pdf",             // muestra el botón "Descargar CV"
+  cv: "assets/cv/CV-Erick-Picavia.pdf",             // muestra los botones "Descargar CV"
   demos: { entradas: "", catastro: "", cafe: "" },  // enlaces "Ver demo" de cada proyecto
 };
 ```
 
-Los textos (presentación, sobre mí, formación) están en `index.html`, separados por comentarios `<!-- ===== SECCIÓN ===== -->`.
+Los textos (presentación, proyectos, sobre mí, formación) están en `index.html`, separados por comentarios `<!-- ===== SECCIÓN ===== -->`.
 
-El formulario de contacto no tiene backend: prepara el mensaje y lo abre en el programa de correo del visitante (`mailto:`). No aparenta enviar nada por su cuenta.
+### La consola de la portada
 
-## Añadir un proyecto
+Cada botón de la consola (`/perfil`, `/proyectos`, `/stack`, `/contacto`) muestra una respuesta en JSON. Esas respuestas están en el objeto `API`, justo debajo de `PERFIL` en `script.js`. Para cambiar lo que dice una respuesta, edita ese objeto. `enlace("texto", "url")` muestra el texto como un enlace dentro de la respuesta.
+
+### El formulario de contacto
+
+No tiene backend: prepara el mensaje y lo abre en el programa de correo del visitante (`mailto:`). No aparenta enviar nada por su cuenta. El botón "Copiar" copia el correo al portapapeles.
+
+## Proyectos y diagramas
+
+Cada proyecto muestra una parte de su modelo de datos real. Los diagramas son SVG dentro de `index.html`, generados por `herramientas/diagramas.py` a partir de las tablas, campos y relaciones de cada repositorio.
+
+Para cambiar un diagrama (por ejemplo, añadir un campo), edita su bloque en `herramientas/diagramas.py` y ejecuta:
+
+```bash
+python3 herramientas/diagramas.py index.html
+```
+
+El script reemplaza solo lo que hay entre los marcadores `<!-- svg:clave -->` y `<!-- /svg:clave -->`. Lo demás de `index.html` no se toca.
+
+Al pasar el cursor (o tocar, en el celular) una tabla, se resaltan sus relaciones. En el proyecto de rally, el botón "Recorrer el tramo" recorre la traza y muestra cada nota de ruta antes de su curva.
+
+### Añadir un proyecto
 
 1. En `index.html`, copia un bloque `<article class="proyecto">` completo y pégalo dentro de la sección `#proyectos`.
-2. Cambia el `id`, el título, la descripción, el problema, lo destacado, las tecnologías y el enlace a GitHub.
-3. Para la imagen, reemplaza el `<svg>` dentro de `.proyecto__visual` por una captura:
+2. Cambia el `id`, el título, la descripción, el número de pruebas, el problema, lo destacado, las tecnologías y el enlace a GitHub.
+3. Para la imagen, reemplaza el contenido de `.lienzo__area` por una captura:
    ```html
    <img src="assets/images/mi-proyecto.webp" alt="Pantalla principal de Mi Proyecto" width="1240" height="660" loading="lazy">
    ```
    Usa WebP de unos 1240 px de ancho para que cargue rápido.
 4. Si tiene demo, ponle `data-demo="mi-clave"` al enlace "Ver demo" y agrega `mi-clave: "https://..."` en `PERFIL.demos`.
+5. Agrega una columna para el proyecto en la tabla de Tecnologías.
 
-Los proyectos se alternan solos (texto a la izquierda o a la derecha).
+## Tabla de tecnologías
+
+La sección Tecnologías es una tabla HTML: cada fila es una tecnología y cada columna un proyecto. En cada celda usa:
+
+- `<i class="si"></i><span class="sr">Sí</span>` si el proyecto la usa.
+- `<i class="listo"></i><span class="sr">Preparado</span>` si el proyecto está preparado para usarla (por ejemplo, PostgreSQL).
+- `<i class="no"></i><span class="sr">No</span>` si no la usa.
+
+El texto dentro de `class="sr"` no se ve, pero lo leen los lectores de pantalla.
 
 ## Sustituir el CV
 
@@ -88,12 +122,18 @@ Cada `git push` a `main` actualiza el sitio.
    - Para el dominio raíz, cuatro registros `A` hacia `185.199.108.153`, `185.199.109.153`, `185.199.110.153` y `185.199.111.153`.
    - Para `www`, un registro `CNAME` hacia `erickxdps.github.io`.
 3. En GitHub: **Settings → Pages → Custom domain**, escribe el dominio y activa **Enforce HTTPS** cuando esté disponible.
-4. Cambia `https://erickxdps.github.io/` por tu dominio en `index.html` (`canonical`, `og:url`, `og:image` y el JSON-LD).
+4. Cambia `https://erickxdps.github.io/` por tu dominio en `index.html` (`canonical`, `og:url`, `og:image` y el JSON-LD), en `robots.txt` y en `sitemap.xml`.
 
 ## Decisiones de diseño
 
-- **Paleta:** fondo `#0B0B0F`, superficies `#13131B`, violeta `#8B5CF6` / `#A78BFA`, texto `#F4F4F5` / `#A1A1AA`.
-- **Tipografía:** Mona Sans, la tipografía variable de GitHub, en una sola familia. Los títulos usan el ancho expandido (125 %) y el texto el ancho normal. La monoespaciada se usa solo donde hay código.
-- **Inicio:** una petición HTTP real a un "perfil" es el único momento animado de la página; respeta `prefers-reduced-motion`.
-- **Proyectos:** cada uno se ilustra con una parte de su modelo de datos real, sacado de su repositorio, en lugar de capturas genéricas.
-- **Rendimiento:** unos 150 KB en total, una sola fuente autoalojada y sin librerías.
+- **Paleta:** fondo `#0B0B0F`, superficies `#13131B`, violeta `#8B5CF6` / `#A78BFA`, texto `#F4F4F5` / `#A1A1AA`. El botón principal usa texto oscuro sobre el violeta claro para cumplir el contraste mínimo de accesibilidad.
+- **Tipografía:** Mona Sans para todo el texto, con el ancho expandido (125 %) en los títulos. Monaspace Neon solo donde hay código: consola, diagramas y rutas de archivos. Ambas son de GitHub y están pensadas para usarse juntas.
+- **Inicio:** una consola que responde como una API de Flask. Es el único momento animado al cargar, y cada botón muestra otra respuesta.
+- **Proyectos:** cada uno se ilustra con su modelo de datos real, enlazado al archivo de su repositorio, en lugar de capturas genéricas.
+- **Tecnologías:** una tabla que muestra en qué proyecto se usa cada herramienta y cuántas pruebas automatizadas tiene cada uno, en lugar de barras de porcentaje.
+- **Accesibilidad:** navegación por teclado, foco visible, textos alternativos, contraste AA y respeto por `prefers-reduced-motion`.
+- **Rendimiento:** unos 230 KB en total, sin librerías y con las fuentes autoalojadas.
+
+## Créditos
+
+- [Mona Sans](https://github.com/github/mona-sans) y [Monaspace](https://github.com/githubnext/monaspace), de GitHub, bajo licencia SIL Open Font License 1.1.
