@@ -8,7 +8,7 @@ Es un sitio estático hecho con HTML, CSS y JavaScript, sin frameworks, sin Node
 
 ```
 erick-portfolio/
-├── index.html          Contenido de todas las secciones, SEO y datos estructurados
+├── index.html          Contenido de todas las secciones (incluye Servicios), SEO y datos estructurados
 ├── style.css           Sistema visual: colores, tipografía, layout, responsive e impresión
 ├── script.js           Configuración personal (arriba del todo) y comportamiento
 ├── 404.html            Página para enlaces que no existen
@@ -45,9 +45,24 @@ const PERFIL = {
   email: "tucorreo@ejemplo.com",                    // muestra el correo, "Escríbeme" y el formulario
   linkedin: "https://www.linkedin.com/in/tu-usuario",
   cv: "assets/cv/CV-Erick-Picavia.pdf",             // muestra los botones "Descargar CV"
+  whatsapp: "+591 69882061",                        // muestra los botones de WhatsApp
+  mensajesWhatsapp: {                               // texto que aparece ya escrito en el chat
+    general: "Hola Erick, vi tu página y quiero hacerte una consulta.",
+    software: "Hola Erick, vi tu página y tengo un requerimiento de software. Te cuento lo que necesito:",
+    tecnico: "Hola Erick, vi tu página y necesito servicio técnico a domicilio. El problema es:",
+  },
   demos: { entradas: "", catastro: "", cafe: "" },  // enlaces "Ver demo" de cada proyecto
 };
 ```
+
+### WhatsApp
+
+Los botones de WhatsApp abren un chat con tu número y un mensaje ya escrito:
+
+- **general**: el botón de la portada y la fila de WhatsApp en Contacto.
+- **software** y **tecnico**: los botones de la sección Servicios. Cada servicio muestra una vista previa del mensaje.
+
+El número va con código de país (`+591` para Bolivia). Si cambias un mensaje en `mensajesWhatsapp`, también cambia su vista previa en la página.
 
 Los textos (presentación, proyectos, sobre mí, formación) están en `index.html`, separados por comentarios `<!-- ===== SECCIÓN ===== -->`.
 

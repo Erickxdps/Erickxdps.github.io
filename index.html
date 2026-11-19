@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Erick Picavia · Backend Developer</title>
-  <meta name="description" content="Erick Picavia, backend developer en La Paz, Bolivia. Desarrollo aplicaciones web con Python, Flask y SQL: un sistema de entradas para museo, un catastro vecinal y la gestión de una cafetería.">
+  <meta name="description" content="Erick Picavia, backend developer en La Paz, Bolivia. Desarrollo software a medida con Python, Flask y SQL y ofrezco servicio técnico a domicilio.">
   <meta name="author" content="Erick Picavia">
   <meta name="theme-color" content="#0B0B0F">
   <!-- EDITAR: si conectas un dominio propio, cambia esta URL aquí, en og:url, og:image y en el JSON-LD -->
@@ -40,6 +40,7 @@
       "address": { "@type": "PostalAddress", "addressLocality": "La Paz", "addressCountry": "BO" },
       "affiliation": { "@type": "CollegeOrUniversity", "name": "Universidad Mayor de San Andrés" },
       "knowsAbout": ["Python", "Flask", "SQL", "PostgreSQL", "SQLite", "SQLAlchemy", "Desarrollo backend", "Linux", "Git", "Nginx"],
+      "telephone": "+59169882061",
       "sameAs": ["https://github.com/Erickxdps"]
     }
   }
@@ -62,6 +63,7 @@
       <a href="#tecnologias">Tecnologías</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#formacion">Formación</a>
+      <a href="#servicios">Servicios</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </div>
@@ -77,11 +79,12 @@
       <p class="hero__intro">Construyo soluciones de software para problemas reales. Me especializo en desarrollo backend con Python, Flask y bases de datos, creando aplicaciones funcionales y sistemas orientados a resolver necesidades concretas.</p>
       <div class="hero__acciones">
         <a class="boton boton--primario" href="#proyectos">Ver proyectos</a>
-        <a class="boton" href="#contacto" data-config="email">Escríbeme</a>
+        <!-- El botón de WhatsApp aparece cuando configuras PERFIL.whatsapp en script.js -->
+        <a class="boton boton--wa" href="#contacto" data-whatsapp="general" target="_blank" rel="noopener" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>WhatsApp</a>
         <!-- El botón de CV aparece solo cuando configuras PERFIL.cv en script.js -->
         <a class="boton" href="#" data-config="cv" download hidden>Descargar CV</a>
       </div>
-      <p class="hero__estado"><span class="punto" aria-hidden="true"></span>Abierto a empleo y a proyectos freelance</p>
+      <p class="hero__estado"><span class="punto" aria-hidden="true"></span>Abierto a empleo, proyectos freelance y servicio técnico a domicilio</p>
       <ul class="redes" aria-label="Perfiles">
         <li><a href="https://github.com/Erickxdps" rel="me noopener" target="_blank">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
@@ -116,7 +119,7 @@
 <span class="l">  <b class="k">"estudios"</b>: <b class="s">"Informática, UMSA"</b>,</span>
 <span class="l">  <b class="k">"stack"</b>: [<b class="s">"Python"</b>, <b class="s">"Flask"</b>, <b class="s">"SQL"</b>],</span>
 <span class="l">  <b class="k">"bases_de_datos"</b>: [<b class="s">"PostgreSQL"</b>, <b class="s">"SQLite"</b>],</span>
-<span class="l">  <b class="k">"abierto_a"</b>: [<b class="s">"empleo"</b>, <b class="s">"freelance"</b>]</span>
+<span class="l">  <b class="k">"abierto_a"</b>: [<b class="s">"empleo"</b>, <b class="s">"freelance"</b>, <b class="s">"servicio técnico"</b>]</span>
 <span class="l">}</span></code></pre>
     </figure>
   </section>
@@ -444,17 +447,46 @@
     </div>
   </section>
 
+  <!-- ============ SERVICIOS ============ -->
+  <section id="servicios" class="seccion" aria-labelledby="serv-t">
+    <div class="seccion__cabeza">
+      <h2 id="serv-t">Servicios</h2>
+      <p>También trabajo por encargo. Elige lo que necesitas y escríbeme por WhatsApp: el mensaje ya va escrito, solo completa los detalles.</p>
+    </div>
+    <div class="servicios">
+      <article class="servicio" aria-labelledby="serv-software">
+        <svg class="servicio__icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+        <h3 id="serv-software">Desarrollo de software a medida</h3>
+        <p>Sistemas web para tu negocio u organización: ventas, inventario, caja, registros y reportes, como los proyectos de esta página.</p>
+        <div class="servicio__accion" data-config-item="whatsapp" hidden>
+          <p class="burbuja" data-mensaje="software"><span class="sr">Mensaje que se envía: </span>Hola Erick, vi tu página y tengo un requerimiento de software. Te cuento lo que necesito:</p>
+          <a class="boton boton--primario boton--wa" href="#contacto" data-whatsapp="software" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Pedir software por WhatsApp</a>
+        </div>
+      </article>
+      <article class="servicio" aria-labelledby="serv-tecnico">
+        <svg class="servicio__icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <h3 id="serv-tecnico">Servicio técnico a domicilio</h3>
+        <p>Reviso y soluciono problemas técnicos en tu casa u oficina. Coordinamos el día y la hora por WhatsApp.</p>
+        <div class="servicio__accion" data-config-item="whatsapp" hidden>
+          <p class="burbuja" data-mensaje="tecnico"><span class="sr">Mensaje que se envía: </span>Hola Erick, vi tu página y necesito servicio técnico a domicilio. El problema es:</p>
+          <a class="boton boton--primario boton--wa" href="#contacto" data-whatsapp="tecnico" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Pedir servicio técnico por WhatsApp</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- ============ CONTACTO ============ -->
   <section id="contacto" class="seccion contacto" aria-labelledby="contacto-t">
     <div class="contacto__intro">
       <h2 id="contacto-t">Hablemos</h2>
-      <p>Si tienes un puesto, un proyecto freelance o una idea que necesita backend, escríbeme.</p>
+      <p>Si tienes un puesto, un proyecto freelance o necesitas servicio técnico a domicilio, escríbeme por correo o por WhatsApp.</p>
       <ul class="contacto__lista">
         <li data-config-item="email" hidden>
           <span>Correo</span>
           <a href="#" data-config="email" data-config-text="valor"></a>
           <button class="boton-mini" type="button" data-copiar>Copiar</button>
         </li>
+        <li data-config-item="whatsapp" hidden><span>WhatsApp</span><a href="#" data-whatsapp="general" data-whatsapp-texto target="_blank" rel="noopener"></a></li>
         <li><span>GitHub</span><a href="https://github.com/Erickxdps" target="_blank" rel="noopener">github.com/Erickxdps</a></li>
         <li data-config-item="linkedin" hidden><span>LinkedIn</span><a href="#" data-config="linkedin" data-config-text="url" target="_blank" rel="noopener"></a></li>
       </ul>

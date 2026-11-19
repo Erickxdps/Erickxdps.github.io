@@ -6,6 +6,12 @@ const PERFIL = {
   email: "juliopicavia0000@gmail.com",  // muestra el correo, el botón "Escríbeme" y el formulario
   linkedin: "",   // ej. "https://www.linkedin.com/in/tu-usuario"
   cv: "",         // ej. "assets/cv/CV-Erick-Picavia.pdf"  -> muestra el botón "Descargar CV"
+  whatsapp: "+591 69882061",  // con código de país; vacío = sin botones de WhatsApp
+  mensajesWhatsapp: {         // texto que aparece ya escrito en el chat
+    general: "Hola Erick, vi tu página y quiero hacerte una consulta.",
+    software: "Hola Erick, vi tu página y tengo un requerimiento de software. Te cuento lo que necesito:",
+    tecnico: "Hola Erick, vi tu página y necesito servicio técnico a domicilio. El problema es:",
+  },
   demos: {        // enlaces a demos públicas; vacío = sin botón "Ver demo"
     entradas: "",
     catastro: "",
@@ -23,7 +29,7 @@ const API = {
     estudios: "Informática, UMSA",
     stack: ["Python", "Flask", "SQL"],
     bases_de_datos: ["PostgreSQL", "SQLite"],
-    abierto_a: ["empleo", "freelance"],
+    abierto_a: ["empleo", "freelance", "servicio técnico"],
   }),
   proyectos: () => [
     { nombre: enlace("Museum Ticketing System", "#p-entradas"), pruebas: 60 },
@@ -42,6 +48,7 @@ const API = {
   contacto: () => {
     const c = {};
     if (PERFIL.email) c.email = enlace(PERFIL.email, `mailto:${PERFIL.email}`);
+    if (PERFIL.whatsapp) c.whatsapp = enlace(PERFIL.whatsapp, enlaceWhatsapp("general"));
     c.github = enlace("github.com/Erickxdps", "https://github.com/Erickxdps");
     if (PERFIL.linkedin) c.linkedin = enlace(PERFIL.linkedin.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, ""), PERFIL.linkedin);
     return c;
@@ -51,6 +58,13 @@ const API = {
 /* ========================================================================== */
 
 function enlace(texto, href) { return { texto, href, esEnlace: true }; }
+
+// Abre un chat de WhatsApp con el mensaje indicado ya escrito
+function enlaceWhatsapp(clave) {
+  const numero = PERFIL.whatsapp.replace(/\D/g, "");
+  const mensaje = PERFIL.mensajesWhatsapp[clave];
+  return `https://wa.me/${numero}${mensaje ? `?text=${encodeURIComponent(mensaje)}` : ""}`;
+}
 
 (() => {
   "use strict";
@@ -78,6 +92,19 @@ function enlace(texto, href) { return { texto, href, esEnlace: true }; }
         if (modo === "url") el.textContent = href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
       });
       $$(`[data-config-item="${clave}"]`).forEach((el) => { el.hidden = false; });
+    }
+
+    if (PERFIL.whatsapp) {
+      $$("[data-whatsapp]").forEach((el) => {
+        el.href = enlaceWhatsapp(el.dataset.whatsapp);
+        el.hidden = false;
+        if (el.hasAttribute("data-whatsapp-texto")) el.textContent = PERFIL.whatsapp;
+      });
+      $$('[data-config-item="whatsapp"]').forEach((el) => { el.hidden = false; });
+      $$("[data-mensaje]").forEach((el) => {
+        const mensaje = PERFIL.mensajesWhatsapp[el.dataset.mensaje];
+        if (mensaje) el.lastChild.textContent = mensaje;
+      });
     }
 
     $$("[data-demo]").forEach((el) => {

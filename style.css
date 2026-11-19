@@ -588,6 +588,35 @@ i.no { width: 10px; height: 2px; border-radius: 2px; background: rgb(244 244 245
 .linea__item p:not(.linea__fecha):not(.linea__lugar) { color: var(--texto-2); margin-top: .55rem; max-width: 40em; }
 .formacion__cv { margin-top: 2.5rem; padding-left: 2rem; }
 
+/* ---------- Servicios ---------- */
+.servicios { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 1.5rem); }
+.servicio {
+  display: flex; flex-direction: column; gap: 1rem;
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+  border: 1px solid var(--linea); border-radius: 20px;
+  background:
+    radial-gradient(90% 60% at 0% 0%, rgb(139 92 246 / .12), transparent 65%),
+    var(--superficie);
+  transition: border-color .3s ease;
+}
+.servicio:hover { border-color: rgb(167 139 250 / .26); }
+.servicio__icono {
+  width: 46px; height: 46px; padding: 11px; border-radius: 12px;
+  background: rgb(139 92 246 / .14);
+  fill: none; stroke: var(--violeta-claro); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;
+}
+.servicio h3 { margin-top: .4rem; font-size: clamp(1.45rem, 2.4vw, 1.9rem); font-weight: 720; font-stretch: 116%; letter-spacing: -.02em; line-height: 1.12; }
+.servicio > p { color: var(--texto-2); max-width: 34em; }
+.servicio__accion { display: grid; gap: 1.1rem; margin-top: auto; padding-top: .75rem; }
+.burbuja {               /* vista previa del mensaje, como un mensaje enviado en el chat */
+  justify-self: end; max-width: 26em;
+  padding: .7rem .95rem; border-radius: 16px 16px 4px 16px;
+  background: rgb(139 92 246 / .16); border: 1px solid rgb(167 139 250 / .3);
+  color: var(--texto); font-size: .95rem; line-height: 1.5;
+}
+.servicio .boton { justify-self: start; }
+.boton--wa svg { width: 19px; height: 19px; flex: none; fill: currentColor; }
+
 /* ---------- Contacto ---------- */
 .contacto {
   display: grid;
@@ -658,13 +687,13 @@ i.no { width: 10px; height: 2px; border-radius: 2px; background: rgb(244 244 245
   .sobre__der { padding-top: 0; }
 }
 
-@media (max-width: 760px) {
-  :root { --margen: 16px; }
+/* Menú desplegable: con seis secciones, el menú horizontal no cabe por debajo de 900 px */
+@media (max-width: 900px) {
   .nav__boton { display: grid; }
   .nav__menu {
     position: absolute; top: var(--nav-alto); left: 0; right: 0;
     flex-direction: column; gap: 0;
-    padding: .5rem 16px 1rem;
+    padding: .5rem var(--margen) 1rem;
     background: rgb(11 11 15 / .97); border-bottom: 1px solid var(--linea);
     visibility: hidden; opacity: 0; transform: translateY(-6px);
     transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
@@ -673,12 +702,17 @@ i.no { width: 10px; height: 2px; border-radius: 2px; background: rgb(244 244 245
   .nav__menu a { padding: .85rem .25rem; font-size: 1.05rem; border-bottom: 1px solid var(--linea); border-radius: 0; }
   .nav__menu a[aria-current="true"]::after { left: .25rem; right: auto; width: 1.5rem; bottom: .45rem; }
   .nav.menu-abierto { background: rgb(11 11 15 / .97); }
+}
 
+@media (max-width: 760px) {
+  :root { --margen: 16px; }
   .hero__acciones .boton { flex: 1 1 auto; }
   .consola__cuerpo { height: calc(15 * 1.72em + 2.3rem); padding-inline: 1rem; }
   .consola__rutas { padding-inline: .75rem; }
 
   .proyecto__datos { grid-template-columns: minmax(0, 1fr); }
+  .servicios { grid-template-columns: minmax(0, 1fr); }
+  .servicio .boton { justify-self: stretch; }
   /* los diagramas conservan un tamaño legible y se desplazan dentro de su marco */
   .lienzo__area .diagrama { width: 880px; max-width: none; }
   .lienzo__area .rally { width: 760px; }
